@@ -1,14 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You, Teacher!</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thank You, Teacher!</title>
+<style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html, body { overflow-x: hidden; } /* prevents sideways scroll on tiny screens */
-
     body {
       font-family: Arial, sans-serif;
       min-height: 100vh;
@@ -21,6 +20,37 @@
       align-items: center;
       color: #3f4a5a;
       padding: clamp(12px, 3vw, 25px); /* fluid padding */
+      position: relative;
+    }
+
+    /* BACK TO PORTFOLIO BUTTON (Top Right Floating Badge / Nav Button) */
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      color: #486581;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: clamp(12px, 1.6vw, 14px);
+      padding: 10px 18px;
+      border-radius: 9999px;
+      border: 2px solid #e6b94a;
+      box-shadow: 0 4px 16px rgba(71, 85, 105, 0.15);
+      transition: all 0.2s ease;
+    }
+    .back-btn:hover {
+      background: #e6b94a;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(180, 134, 40, 0.3);
+    }
+    .back-btn:active {
+      transform: translateY(0);
     }
 
     .container {
@@ -34,15 +64,14 @@
       gap: clamp(20px, 4vw, 50px); /* fluid gap */
       box-shadow: 0 20px 50px rgba(71, 85, 105, 0.18);
       border: 1px solid rgba(255,255,255,0.8);
+      margin-top: 20px;
     }
-
     /* LEFT SIDE */
     .photo-section {
       width: 45%;
       text-align: center;
       flex-shrink: 0; /* keeps the photo column stable */
     }
-
     .photo-section img {
       width: 100%;
       max-width: 410px;
@@ -53,30 +82,25 @@
       border: 6px solid #e6b94a;
       box-shadow: 0 12px 30px rgba(71, 85, 105, 0.20);
     }
-
     .photo-section h2 {
       margin-top: 18px;
       color: #b48628;
       font-size: clamp(19px, 2.5vw, 24px); /* fluid */
     }
-
     /* RIGHT SIDE */
     .message-section { width: 55%; min-width: 0; } /* min-width:0 lets text wrap properly in flex */
-
     .message-section h1 {
       font-size: clamp(30px, 5vw, 48px); /* fluid title */
       color: #486581;
       margin-bottom: 12px;
       line-height: 1.15;
     }
-
     .message-section h3 {
       color: #7b8794;
       font-weight: normal;
       margin-bottom: 22px;
       font-size: clamp(16px, 2.2vw, 20px);
     }
-
     .message {
       font-size: clamp(15px, 1.8vw, 17px); /* fluid body text */
       line-height: 1.8;
@@ -84,29 +108,24 @@
       color: #52606d;
       overflow-wrap: break-word;
     }
-
     .message strong { color: #b48628; }
     .heart { font-size: clamp(26px, 4vw, 34px); margin-bottom: 10px; }
-
     /* SONG */
     .song-title {
       color: #486581;
       font-size: clamp(15px, 2vw, 17px);
       margin-bottom: 5px;
     }
-
     audio {
       width: 100%;
       max-width: 470px;
       margin-top: 8px;
     }
-
     .footer {
       margin-top: 20px;
       font-size: clamp(12px, 1.8vw, 14px);
       color: #829ab1;
     }
-
     .line {
       width: 80px;
       height: 4px;
@@ -114,63 +133,68 @@
       border-radius: 10px;
       margin-bottom: 20px;
     }
-
     /* TABLETS & SMALL LAPTOPS — stack into one column earlier */
     @media (max-width: 900px) {
       .container {
         flex-direction: column;
         gap: 30px;
+        margin-top: 45px;
       }
       .photo-section, .message-section { width: 100%; }
       .photo-section img { max-width: 100%; aspect-ratio: 4 / 3; }
       .message-section { text-align: center; }
       .line { margin-left: auto; margin-right: auto; }
       audio { margin-left: auto; margin-right: auto; display: block; }
+      .back-btn {
+        top: 12px;
+        right: 12px;
+        padding: 8px 14px;
+      }
     }
-
     /* SMALL PHONES */
     @media (max-width: 480px) {
       body { padding: 10px; }
-      .container { padding: 20px 15px; gap: 22px; }
+      .container { padding: 20px 15px; gap: 22px; margin-top: 45px; }
       .photo-section img { border-width: 4px; aspect-ratio: 1 / 1; }
       .photo-section h2 { margin-top: 12px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- PICTURE -->
-    <div class="photo-section">
-      <img src="teacher.jpg" alt="My Teacher">
-      <h2>To Our Amazing Teacher 💛</h2>
-    </div>
-
-    <!-- MESSAGE -->
-    <div class="message-section">
-      <div class="heart">🌻 💛 🌻</div>
-      <div class="line"></div>
-      <h1>Thank You, Teacher!</h1>
-      <h3>For everything you've done for us.</h3>
-      <p class="message">
-        Dear Teacher, <br><br>
+<!-- BACK TO PORTFOLIO BUTTON (Linked directly, opens in same tab) -->
+<a class="back-btn" href="https://imponrusthjadeh.github.io/FinalProject/" title="Back to Portfolio">
+<span>← Back to Portfolio</span>
+</a>
+<div class="container">
+<!-- PICTURE -->
+<div class="photo-section">
+<img alt="My Teacher" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<h2>To Our Amazing Teacher 💛</h2>
+</div>
+<!-- MESSAGE -->
+<div class="message-section">
+<div class="heart">🌻 💛 🌻</div>
+<div class="line"></div>
+<h1>Thank You, Teacher!</h1>
+<h3>For everything you've done for us.</h3>
+<p class="message">
+        Dear Teacher, <br/><br/>
         Thank you for your patience, kindness, and dedication. You didn't just
         teach us lessons from books, but also taught us valuable lessons that we
-        can carry throughout our lives. <br><br>
+        can carry throughout our lives. <br/><br/>
         Thank you for believing in us, encouraging us when things were difficult,
-        and always giving your best to help us grow. <br><br>
-        We are truly grateful to have you as our teacher. <br><br>
-        <strong> We appreciate you more than words can say! 💛 </strong>
-      </p>
-
-      <!-- SONG -->
-      <p class="song-title">🎵 <strong>A Song For You</strong></p>
-      <audio controls>
-        <source src="song.mp3" type="audio/mpeg">
+        and always giving your best to help us grow. <br/><br/>
+        We are truly grateful to have you as our teacher. <br/><br/>
+<strong> We appreciate you more than words can say! 💛 </strong>
+</p>
+<!-- SONG -->
+<p class="song-title">🎵 <strong>A Song For You</strong></p>
+<audio controls="">
+<source src="song.mp3" type="audio/mpeg"/>
         Your browser does not support the audio element.
       </audio>
-
-      <p class="footer">Made with love and gratitude for our wonderful teacher 🌻</p>
-    </div>
-  </div>
+<p class="footer">Made with love and gratitude for our wonderful teacher 🌻</p>
+</div>
+</div>
 </body>
 </html>
